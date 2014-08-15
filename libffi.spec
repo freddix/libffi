@@ -1,11 +1,12 @@
 Summary:	Foreign Function Interface library
 Name:		libffi
-Version:	3.0.13
+Version:	3.1
 Release:	1
 License:	MIT-like
 Group:		Libraries
 Source0:	ftp://sourceware.org/pub/libffi/%{name}-%{version}.tar.gz
-# Source0-md5:	45f3b6dbc9ee7c7dfbbbc5feba571529
+# Source0-md5:	f5898b29bbfd70502831a212d9249d10
+Patch0:		0001-Fix-paths-in-libffi.pc.in.patch
 URL:		http://sources.redhat.com/libffi/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -36,6 +37,7 @@ Header files for libffi.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -52,6 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
