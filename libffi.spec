@@ -1,7 +1,7 @@
 Summary:	Foreign Function Interface library
 Name:		libffi
 Version:	3.1
-Release:	1
+Release:	2
 License:	MIT-like
 Group:		Libraries
 Source0:	ftp://sourceware.org/pub/libffi/%{name}-%{version}.tar.gz
